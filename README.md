@@ -26,4 +26,5 @@ For normal run:
 For debugging run (with gdb).
 On two separate terminals:
 > docker-compose run debug
+
 > docker-compose run gdb
