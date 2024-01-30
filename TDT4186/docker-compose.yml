@@ -1,6 +1,6 @@
 services:
   dev:
-    container_name: tdt4186
+    container_name: xv6
     volumes:
       - .:/xv6
     command: bash -c "make qemu"
@@ -12,7 +12,7 @@ services:
     tty: true
     stdin_open: true
   debug:
-    container_name: tdt4186
+    container_name: xv6
     hostname: xv6-debug
     volumes:
       - .:/xv6
@@ -27,7 +27,7 @@ services:
     networks:
       - gdbnet
   gdb:
-    container_name: tdt4186
+    container_name: xv6
     command: bash -c gdb-multiarch
     build:
       context: .
