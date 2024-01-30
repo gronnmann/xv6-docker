@@ -5,6 +5,7 @@ echo "Setting up xv6 environment"
 # Clone xv6 and move here
 git clone https://github.com/mit-pdos/xv6-riscv.git
 mv ./xv6-riscv/README ./xv6-riscv/README_xv6
+rm -f ./xv6-riscv/.git
 mv ./xv6-riscv/{.,}* .
 
 rm -rf ./xv6-riscv
