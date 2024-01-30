@@ -13,10 +13,9 @@ services:
     stdin_open: true
   debug:
     container_name: tdt4186
+    hostname: xv6-debug
     volumes:
       - .:/xv6
-    ports:
-      - 25001:25001
     command: bash -c "make qemu-gdb"
     build:
       context: .
@@ -25,3 +24,21 @@ services:
       - SYS_PTRACE
     tty: true
     stdin_open: true
+    networks:
+      - gdbnet
+  gdb:
+    container_name: tdt4186
+    command: bash -c gdb-multiarch
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - .:/xv6
+    networks:
+      - gdbnet
+
+networks:
+  gdbnet:
+    name: gdbnet

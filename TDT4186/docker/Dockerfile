@@ -4,8 +4,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # XV6 things
 
-EXPOSE 25001
-
 RUN apt-get update \
   && apt-get install -y \
     git \
